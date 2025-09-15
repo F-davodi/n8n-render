@@ -1,10 +1,14 @@
-FROM n8nio/n8n:latest
+# Base image
+FROM node:18
 
-ENV PORT=5678
+# Set working directory
+WORKDIR /home/node/n8n
+
+# Install n8n globally
+RUN npm install -g n8n
+
+# Expose n8n port
 EXPOSE 5678
 
-ENV N8N_HOST=0.0.0.0
-ENV N8N_PORT=5678
-ENV N8N_PROTOCOL=http
-
-CMD ["n8n", "start"]
+# Run n8n
+CMD ["n8n", "start", "--tunnel"]
