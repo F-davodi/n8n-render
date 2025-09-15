@@ -1,17 +1,17 @@
-# Base image
-FROM node:20.21
+# Base image با آخرین Node.js 20
+FROM node:20
 
 # Set working directory
 WORKDIR /home/node/n8n
 
-# Install n8n globally
+# نصب آخرین نسخه n8n
 RUN npm install -g n8n@latest
 
-# Expose port
+# پورت n8n
 EXPOSE 5678
 
-# Optional: fix permissions warning
+# رفع ارور permissions
 ENV N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false
 
-# Start n8n with tunnel (برای Webhook)
+# Start n8n با tunnel برای Webhook
 CMD ["npx", "n8n", "start", "--tunnel"]
