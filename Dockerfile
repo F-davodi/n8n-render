@@ -1,5 +1,5 @@
 # Base image
-FROM node:18
+FROM node:20.21
 
 # Set working directory
 WORKDIR /home/node/n8n
